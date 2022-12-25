@@ -1,0 +1,14 @@
+.form__submit {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    background-color: #000000;
+    border-radius: 2px;
+    color: #ffffff;
+    width: 238px;
+    height: 46px;
+    margin: 0 auto 25px;
+    border: none;
+    outline: none;
+}

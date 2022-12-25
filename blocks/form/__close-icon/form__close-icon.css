@@ -1,0 +1,5 @@
+.form__close-icon {
+    position: absolute;
+    top: calc(0 - 20px - 16px);
+    right: 0px;
+}

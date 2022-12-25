@@ -1,0 +1,19 @@
+.user__job-name {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+}
+
+@media screen and (min-width: 769px) {
+    .user__job-name {
+        margin: 16px 0 0 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .user__job-name {
+        text-align: center;
+        margin: 14px 0 0;
+    }
+}
