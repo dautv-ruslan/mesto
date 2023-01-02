@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1200px) {
     .card {
         gap: 20px 17px;
         grid-template-columns: auto auto auto;
@@ -14,12 +14,22 @@
     }
 }
 
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+    .card {
+        gap: 20px;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        width: 584px;
+        margin: 51px auto 0;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .card {
         gap: 20px;
         grid-template-columns: auto;
         grid-template-rows: auto;
-        width: 282px;
-        margin: 36px 19px 0;
+        max-width: 282px;
+        margin: 36px auto 0;
     }
 }

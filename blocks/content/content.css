@@ -4,14 +4,20 @@
     flex-direction: column;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1200px) {
     .content {
-        width: 880px;
+        max-width: 880px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+    .content {
+        max-width: 584px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .content {
-        width: 320px;
+        max-width: 320px;
     }
 }

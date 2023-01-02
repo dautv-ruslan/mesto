@@ -3,6 +3,10 @@
     color: #ffffff;
 }
 
+.user__name:hover::after {
+    opacity: 0.6;
+}
+
 @media screen and (min-width: 769px) {
     .user__name {
         font-size: 42px;
@@ -10,9 +14,14 @@
         margin: 0 0 0 30px;
     }
     .user__name::after {
+        display: inline-block;
+        content: '';
+        background: url(../../../images/edit_icon.svg) no-repeat;
+        background-size: cover;
         width: 24px;
         height: 24px;
         margin-left: 18px;
+        cursor: pointer;
     }
 }
 
