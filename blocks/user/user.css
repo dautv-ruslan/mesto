@@ -2,11 +2,20 @@
     display: flex;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1200px) {
     .user {
         flex-direction: row;
         margin-top: 40px;
         width: 880px;
+        position: relative;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+    .user {
+        flex-direction: row;
+        margin-top: 40px;
+        width: 584px;
         position: relative;
     }
 }

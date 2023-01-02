@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="UTF-8">
         <title>Проект: Место</title>
         <link href="vendor/font.css" rel="stylesheet">
         <link href="pages/index.css" rel="stylesheet">
@@ -64,15 +66,18 @@
                     </svg>
                 </li>
             </ul>
-
-            <form class="form">
-                <p class="form__caption">Редактировать профиль</p>
-                <input class="form__item-name" type="text" value="Жак-Ив Кусто" name="name">
-                <input class="form__item-job-name" type="text" value="Исследователь океана" name="job_name">
-                <input class="form__submit" type="submit" value="Сохранить" name="submit">
-
-                <img class="form__close-icon" src="images/close_icon.svg" alt="Иконка закрыть окно">
-            </form>
+            <div class="popup popup-closed">
+                <div class="popup__container">
+                    <form class="form popup-closed">
+                        <p class="form__caption">Редактировать профиль</p>
+                        <input class="form__item-name" type="text" value="Жак-Ив Кусто" name="name">
+                        <input class="form__item-job-name" type="text" value="Исследователь океана" name="job_name">
+                        <input class="form__submit" type="submit" value="Сохранить" name="submit">
+        
+                        <img class="form__close-icon" src="images/close_icon.svg" alt="Иконка закрыть окно">
+                    </form>
+                </div>
+            </div>
         </main>
         <footer class="footer">
             <p class="footer__copy">&copy; 2020 Mesto Russia</p>
