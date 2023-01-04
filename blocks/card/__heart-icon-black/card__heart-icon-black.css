@@ -1,0 +1,6 @@
+.card__heart-icon-black {
+    display: none;
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+}
