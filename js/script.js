@@ -21,12 +21,14 @@ function handleFormSubmit(evt) {
 function handleFormClose(evt) {
     form.classList.add('popup-closed');
     f_popup.classList.add('popup-closed');
+    f_popup.style.display = "none";
     f_popup_container.classList.add('popup-closed');
 }
 
 function handleFormOpen(evt) {
     form.classList.remove('popup-closed');
         f_popup.classList.remove('popup-closed');
+        f_popup.style.display = "flex";
         f_popup_container.classList.remove('popup-closed');
 
         let user_name = document.querySelector('.user__name').innerHTML;
