@@ -12,17 +12,17 @@ function handleFormSubmit(evt) {
     document.querySelector('.user__name').textContent = itemName.value;
     document.querySelector('.user__job-name').textContent = jobName.value;
 
-    fPopup.classList.add('popup__state-closed');
+    fPopup.classList.add('popup_state-closed');
     fPopup.style.display = "none";
 }
 
 function handleFormClose(evt) {
-    fPopup.classList.add('popup__state-closed');
+    fPopup.classList.add('popup_state-closed');
     fPopup.style.display = "none";
 }
 
 function handleFormOpen(evt) {
-    fPopup.classList.remove('popup__state-closed');
+    fPopup.classList.remove('popup_state-closed');
     fPopup.style.display = "flex";
 
     let userName = document.querySelector('.user__name').textContent;
