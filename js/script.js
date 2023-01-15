@@ -3,8 +3,8 @@ let fPopup = document.querySelector('.popup');
 let closeIcon = document.querySelector('.popup__close-icon');
 let editButton = document.querySelector('.user__edit-button');
 
-let itemName = document.querySelector('.form__input__item_name');
-let jobName = document.querySelector('.form__input__item_job-name');
+let itemName = document.querySelector('.form__input_item-name');
+let jobName = document.querySelector('.form__input_item-job-name');
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
@@ -12,17 +12,17 @@ function handleFormSubmit(evt) {
     document.querySelector('.user__name').textContent = itemName.value;
     document.querySelector('.user__job-name').textContent = jobName.value;
 
-    fPopup.classList.add('popup__state_closed');
+    fPopup.classList.add('popup__state-closed');
     fPopup.style.display = "none";
 }
 
 function handleFormClose(evt) {
-    fPopup.classList.add('popup__state_closed');
+    fPopup.classList.add('popup__state-closed');
     fPopup.style.display = "none";
 }
 
 function handleFormOpen(evt) {
-    fPopup.classList.remove('popup__state_closed');
+    fPopup.classList.remove('popup__state-closed');
     fPopup.style.display = "flex";
 
     let userName = document.querySelector('.user__name').textContent;
