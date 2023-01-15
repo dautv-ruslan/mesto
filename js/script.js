@@ -1,43 +1,37 @@
 let form = document.querySelector(".form");
-let f_popup = document.querySelector('.popup');
-let f_popup_container = document.querySelector('.popup__container');
-let close_icon = document.querySelector('.form__close-icon');
-let edit_button = document.querySelector('.user__edit-button');
+let fPopup = document.querySelector('.popup');
+let closeIcon = document.querySelector('.popup__close-icon');
+let editButton = document.querySelector('.user__edit-button');
+
+let itemName = document.querySelector('.form__input__item_name');
+let jobName = document.querySelector('.form__input__item_job-name');
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
 
-    let item_name = document.querySelector('.form__item-name');
-    let job_name = document.querySelector('.form__item-job-name');
+    document.querySelector('.user__name').textContent = itemName.value;
+    document.querySelector('.user__job-name').textContent = jobName.value;
 
-    document.querySelector('.user__name').innerHTML = item_name.value;
-    document.querySelector('.user__job-name').innerText = job_name.value;
-
-    form.classList.add('popup-closed');
-    f_popup.classList.add('popup-closed');
-    f_popup_container.classList.add('popup-closed');
+    fPopup.classList.add('popup__state_closed');
+    fPopup.style.display = "none";
 }
 
 function handleFormClose(evt) {
-    form.classList.add('popup-closed');
-    f_popup.classList.add('popup-closed');
-    f_popup.style.display = "none";
-    f_popup_container.classList.add('popup-closed');
+    fPopup.classList.add('popup__state_closed');
+    fPopup.style.display = "none";
 }
 
 function handleFormOpen(evt) {
-    form.classList.remove('popup-closed');
-        f_popup.classList.remove('popup-closed');
-        f_popup.style.display = "flex";
-        f_popup_container.classList.remove('popup-closed');
+    fPopup.classList.remove('popup__state_closed');
+    fPopup.style.display = "flex";
 
-        let user_name = document.querySelector('.user__name').innerHTML;
-        let job_name = document.querySelector('.user__job-name').innerHTML;
+    let userName = document.querySelector('.user__name').textContent;
+    let jobName = document.querySelector('.user__job-name').textContent;
 
-        document.querySelector('.form__item-name').value(user_name);
-        document.querySelector('.form__item-job-name').value(job_name);
+    itemName.value = userName;
+    jobName.value = jobName;
 }
 
 form.addEventListener('submit', handleFormSubmit);
-close_icon.addEventListener('click', handleFormClose);
-edit_button.addEventListener('click', handleFormOpen);
+closeIcon.addEventListener('click', handleFormClose);
+editButton.addEventListener('click', handleFormOpen);

@@ -1,7 +1,7 @@
 @media screen and (min-width: 769px) {
-    .row-spacing-right {
+    .user__row-spacing-left {
         display: flex;
         flex-direction: column;
-        margin: auto 0 auto auto;
+        margin: auto 0;
     }
 }

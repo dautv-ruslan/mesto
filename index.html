@@ -4,7 +4,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="UTF-8">
         <title>Проект: Место</title>
-        <link href="vendor/font.css" rel="stylesheet">
         <link href="pages/index.css" rel="stylesheet">
     </head>
     <body class="page">
@@ -14,76 +13,67 @@
         <main class="content">
             <section class="user">
                 <img class="user__image" src="images/image_3.png" alt="Аватар">
-                <div class="row-spacing-left">
-                    <div class="name-container">
-                        <h1 class="user__name">Жак-Ив Кусто</h1><img class="user__edit-button" src="images/edit_icon.svg" alt="Редактировать">
+                <div class="user__row-spacing-left">
+                    <div class="user__name-container">
+                        <h1 class="user__name">Жак-Ив Кусто</h1><button type="button" class="user__edit-button"></button>
                     </div>
                     <p class="user__job-name">Исследователь океана</p>
                 </div>
-                <div class="row-spacing-right">
-                    <img class="user__add-button" src="images/arrow.svg" alt="Добавить">
-                </div>
+                <button type="button" class="user__add-button"></button>
             </section>
             <ul class="card">
                 <li class="card__item">
                     <img class="card__image" src="images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск">
                     <div class="card__container">
-                        <p class="card__caption">Карачаевск</p>
-                        <img class="card__heart-icon" src="images/vector.svg" alt="Сердечко">
-                        <img class="card__heart-icon-black" src="images/union.svg" alt="Сердечко">
+                        <h3 class="card__caption">Карачаевск</h3>
+                        <button type="button" class="card__heart-icon">
                     </div>
                 </li>
                 <li class="card__item">
                     <img class="card__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Карачаевск">
                     <div class="card__container">
-                        <p class="card__caption">Гора Эльбрус</p>
-                        <img class="card__heart-icon" src="images/vector.svg" alt="Сердечко">
-                        <img class="card__heart-icon-black" src="images/union.svg" alt="Сердечко">
+                        <h3 class="card__caption">Гора Эльбрус</h3>
+                        <button type="button" class="card__heart-icon">
                     </div>
                 </li>
                 <li class="card__item">
                     <img class="card__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Карачаевск">
                     <div class="card__container">
-                        <p class="card__caption">Домбай</p>
-                        <img class="card__heart-icon" src="images/vector.svg" alt="Сердечко">
-                        <img class="card__heart-icon-black" src="images/union.svg" alt="Сердечко">
+                        <h3 class="card__caption">Домбай</h3>
+                        <button type="button" class="card__heart-icon">
                     </div>
                 </li>
                 <li class="card__item">
                     <img class="card__image" src="images/kirill-pershin-1404681-unsplash.png" alt="Карачаевск">
                     <div class="card__container">
-                        <p class="card__caption">Гора Эльбрус</p>
-                        <img class="card__heart-icon" src="images/vector.svg" alt="Сердечко">
-                        <img class="card__heart-icon-black" src="images/union.svg" alt="Сердечко">
+                        <h3 class="card__caption">Гора Эльбрус</h3>
+                        <button type="button" class="card__heart-icon">
                     </div>
                 </li>
                 <li class="card__item">
                     <img class="card__image" src="images/kirill-pershin-1556355-unsplash.png" alt="Карачаевск">
                     <div class="card__container">
-                        <p class="card__caption">Домбай</p>
-                        <img class="card__heart-icon" src="images/vector.svg" alt="Сердечко">
-                        <img class="card__heart-icon-black" src="images/union.svg" alt="Сердечко">
+                        <h3 class="card__caption">Домбай</h3>
+                        <button type="button" class="card__heart-icon">
                     </div>
                 </li>
                 <li class="card__item">
                     <img class="card__image" src="images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск">
                     <div class="card__container">
-                        <p class="card__caption">Карачаевск</p>
-                        <img class="card__heart-icon" src="images/vector.svg" alt="Сердечко">
-                        <img class="card__heart-icon-black" src="images/union.svg" alt="Сердечко">
+                        <h3 class="card__caption">Карачаевск</h3>
+                        <button type="button" class="card__heart-icon">
                     </div>
                 </li>
             </ul>
-            <div class="popup popup-closed">
+            <div class="popup popup__state_closed">
                 <div class="popup__container">
-                    <form class="form popup-closed">
-                        <p class="form__caption">Редактировать профиль</p>
-                        <input class="form__item-name" type="text" value="Жак-Ив Кусто" name="name">
-                        <input class="form__item-job-name" type="text" value="Исследователь океана" name="job_name">
+                    <form class="form" name="form-user-profile">
+                        <h2 class="form__caption">Редактировать профиль</h2>
+                        <input class="form__input form__input__item_name" type="text" value="Жак-Ив Кусто" name="name">
+                        <input class="form__input form__input__item_job-name" type="text" value="Исследователь океана" name="job_name">
                         <input class="form__submit" type="submit" value="Сохранить" name="submit">
-        
-                        <img class="form__close-icon" src="images/close_icon.svg" alt="Иконка закрыть окно">
                     </form>
+                    <button type="button" class="popup__close-icon">
                 </div>
             </div>
         </main>

@@ -1,35 +1,47 @@
 .card {
     display: grid;
+    row-gap: 20px;
     list-style: none;
     padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0;
 }
 
 @media screen and (min-width: 1200px) {
     .card {
-        gap: 20px 17px;
+        column-gap: 17px;
         grid-template-columns: auto auto auto;
         grid-template-rows: auto auto;
         width: 880px;
-        margin: 51px auto 0;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .card {
+        column-gap: 20px;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1199px) {
     .card {
-        gap: 20px;
         grid-template-columns: auto auto;
         grid-template-rows: auto auto auto;
         width: 584px;
-        margin: 51px auto 0;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .card {
+        margin-top: 51px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .card {
-        gap: 20px;
         grid-template-columns: auto;
         grid-template-rows: auto;
         max-width: 282px;
-        margin: 36px auto 0;
+        margin-top: 36px;
     }
 }

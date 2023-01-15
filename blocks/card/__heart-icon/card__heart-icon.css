@@ -1,5 +1,9 @@
 .card__heart-icon {
-
+    background: url(../../../images/vector.svg);
+    width: 22px;
+    height: 19px;
+    margin: auto 0;
+    border: none;
 }
 
 .card__heart-icon:hover {
