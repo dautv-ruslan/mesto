@@ -18,7 +18,7 @@
 @import url(../blocks/user/__name-container/user__name-container.css);
 @import url(../blocks/user/__row-spacing-left/user__row-spacing-left.css);
 
-@import url(../blocks/card/card.css);
+@import url(../blocks/card/__list/card__list.css);
 @import url(../blocks/card/__item/card__item.css);
 @import url(../blocks/card/__container/card__container.css);
 @import url(../blocks/card/__caption/card__caption.css);
