@@ -1,6 +1,7 @@
 .popup__close-icon {
     background: url(../../../images/close_icon.svg) no-repeat;
     background-size: cover;
+    border: none;
     position: absolute;
     right: 0px;
     cursor: pointer;
