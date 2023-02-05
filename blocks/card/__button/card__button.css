@@ -1,0 +1,11 @@
+.card__button {
+    width: 18px;
+    height: 19px;
+    margin-top: -19px;
+    transform: translate(calc(282px - 20px - 18px), 40px);
+    cursor: pointer;
+}
+
+.card__button:hover {
+    opacity: 0.5;
+}
