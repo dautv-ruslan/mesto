@@ -86,6 +86,34 @@
                     <button type="button" aria-label="Закрыть" class="popup__close-icon"></button>
                 </div>
             </div>
+            <div class="popup profile-template popup_state-closed">
+                <div class="popup__container">
+                    <form class="form-user-profile" name="form-user-profile">
+                        <h2 class="form__caption">Редактировать профиль</h2>
+                        <input class="form__input form__input_type_item-name" type="text" value="Жак-Ив Кусто" name="name">
+                        <input class="form__input form__input_type_item-job-name" type="text" value="Исследователь океана" name="job_name">
+                        <input class="form__submit" type="submit" value="Сохранить" name="submit">
+                    </form>
+                </div>
+            </div>
+            <div class="popup card-add-template popup_state-closed">
+                <div class="popup__container">
+                    <form class="form-user-new" name="form-user-new">
+                        <h2 class="form__caption">Новое место</h2>
+                        <input class="form__input form__input_type_card-name" type="text" value="" name="name" placeholder="Название">
+                        <input class="form__input form__input_type_card-link" type="text" value="" name="job_name" placeholder="Ссылка на картинку">
+                        <input class="form__card-add-submit" type="submit" value="Сохранить" name="submit">
+                    </form>
+                    <button type="button" aria-label="Закрыть" class="popup__card-close-icon"></button>
+                </div>
+            </div>
+            <div class="popup image-template popup_state-closed">
+                <div class="popup__image-container">
+                    <img class="popup__image">
+                    <p class="popup__image-hint"></p>
+                    <button type="button" aria-label="Закрыть" class="popup__image-close-icon"></button>
+                </div>
+            </div>
         </main>
         <footer class="footer">
             <p class="footer__copy">&copy; 2020 Mesto Russia</p>
@@ -115,11 +143,6 @@
                 <input class="form__input form__input_type_item-job-name" type="text" value="" name="job_name" placeholder="Ссылка на картинку">
                 <input class="form__submit" type="submit" value="Сохранить" name="submit">
             </form>
-        </template>
-        <template id="image-template">
-            <div class="image__popup-container">
-                <img class="image__popup">
-            </div>            
         </template>
         <script src="js/script.js"></script>
     </body>

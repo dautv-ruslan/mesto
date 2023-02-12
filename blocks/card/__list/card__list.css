@@ -11,7 +11,7 @@
 @media screen and (min-width: 1200px) {
     .card__list {
         column-gap: 17px;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 282px 282px auto;
         grid-template-rows: auto auto;
         width: 880px;
     }
@@ -25,7 +25,7 @@
 
 @media screen and (min-width: 769px) and (max-width: 1199px) {
     .card__list {
-        grid-template-columns: auto auto;
+        grid-template-columns: 282px auto;
         grid-template-rows: auto auto auto;
         width: 584px;
     }

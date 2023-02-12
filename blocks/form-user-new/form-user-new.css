@@ -1,0 +1,4 @@
+.form-user-new {
+    display: flex;
+    flex-direction: column;
+}
