@@ -45,6 +45,7 @@
 @import url(../blocks/form-user-new/form-user-new.css);
 @import url(../blocks/form-user-new/__caption/form-user-new__caption.css);
 @import url(../blocks/form-user-new/__input/form-user-new__input.css);
+@import url(../blocks/form-user-new/__card-add-submit/form-user-new__card-add-submit.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copy/footer__copy.css);

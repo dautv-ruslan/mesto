@@ -35,7 +35,7 @@ const editButton = document.querySelector('.user__edit-button');
 const likeButton = document.querySelectorAll('.card__heart-icon');
 const cardButton = document.querySelectorAll('.card__button');
 const userAddButton = document.querySelector('.user__add-button');
-const cardAddSubmit = document.querySelector('.form__card-add-submit');
+const cardAddSubmit = document.querySelector('.form-user-new__card-add-submit');
 
 const itemName = document.querySelector('.form__input_type_item-name');
 const jobName = document.querySelector('.form__input_type_item-job-name');
@@ -96,8 +96,8 @@ function handleUserForm(evt) {
     fPopupContainer.append(cardTemplateElement);
     document.querySelector('.form__submit').addEventListener('click', handleCardAdd);
     */
-    cardAddTemplate.querySelector('.form__input_type_card-name').value = '';
-    cardAddTemplate.querySelector('.form__input_type_card-link').value = '';
+    cardAddTemplate.querySelector('.form-user-new__input_type_card-name').value = '';
+    cardAddTemplate.querySelector('.form-user-new__input_type_card-link').value = '';
     cardAddTemplate.classList.remove('popup_state-closed');
 }
 
@@ -117,7 +117,7 @@ function insertCard(name, link) {
 function handleCardAdd(evt) {
     evt.preventDefault();
 
-    const cardItem = insertCard(document.querySelector('.form__input_type_card-name').value, document.querySelector('.form__input_type_card-link').value);
+    const cardItem = insertCard(document.querySelector('.form-user-new__input_type_card-name').value, document.querySelector('.form-user-new__input_type_card-link').value);
 
     cardList.insertBefore(cardItem, cardList.firstChild);
     cardAddTemplate.classList.add('popup_state-closed');
