@@ -40,7 +40,6 @@ const cardAddSubmit = document.querySelector('.form__card-add-submit');
 const itemName = document.querySelector('.form__input_type_item-name');
 const jobName = document.querySelector('.form__input_type_item-job-name');
 const cardTemplate = document.querySelector('#card-template').content;
-const profileTemplate = document.querySelector('#profile-template').content;
 const cardAddTemplate = document.querySelector('.card-add-template');
 const imageTemplate = document.querySelector('.image-template');
 const cardList = document.querySelector('.card__list');
