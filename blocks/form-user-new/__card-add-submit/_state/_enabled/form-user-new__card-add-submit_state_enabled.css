@@ -1,0 +1,9 @@
+.form-user-new__card-add-submit_state_enabled {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.form-user-new__card-add-submit_state_enabled:hover {
+    background-color: rgba(0,0,0,0.8);
+    cursor: pointer;
+}

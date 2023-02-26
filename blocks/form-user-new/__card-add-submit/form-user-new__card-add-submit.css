@@ -1,20 +1,13 @@
 .form-user-new__card-add-submit {
     font-weight: 400;
     text-align: center;
-    background-color: #000000;
     border-radius: 2px;
-    color: #ffffff;
     border: none;
     outline: none;
     margin-right: auto;
     margin-left: auto;
     padding-right: 0;
     padding-left: 0;
-}
-
-.form-user-new__card-add-submit:hover {
-    background-color: rgba(0,0,0,0.8);
-    cursor: pointer;
 }
 
 @media screen and (min-width: 769px) {

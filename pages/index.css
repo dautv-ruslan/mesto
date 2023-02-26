@@ -40,11 +40,16 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__caption/form__caption.css);
 @import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__input-error/form__input-error.css);
 @import url(../blocks/form/__submit/form__submit.css);
+@import url(../blocks/form/__submit/_state/_disabled/form__submit_state_disabled.css);
+@import url(../blocks/form/__submit/_state/_enabled/form__submit_state_enabled.css);
 @import url(../blocks/form-user-new/form-user-new.css);
 @import url(../blocks/form-user-new/__caption/form-user-new__caption.css);
 @import url(../blocks/form-user-new/__input/form-user-new__input.css);
 @import url(../blocks/form-user-new/__card-add-submit/form-user-new__card-add-submit.css);
+@import url(../blocks/form-user-new/__card-add-submit/_state/_disabled/form-user-new__card-add-submit_state_disabled.css);
+@import url(../blocks/form-user-new/__card-add-submit/_state/_enabled/form-user-new__card-add-submit_state_enabled.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copy/footer__copy.css);

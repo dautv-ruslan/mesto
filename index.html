@@ -79,9 +79,11 @@
                 <div class="popup__container">
                     <form class="form" name="form-user-profile">
                         <h2 class="form__caption">Редактировать профиль</h2>
-                        <input class="form__input form__input_type_item-name" type="text" value="Жак-Ив Кусто" name="name">
-                        <input class="form__input form__input_type_item-job-name" type="text" value="Исследователь океана" name="job_name">
-                        <input class="form__submit" type="submit" value="Сохранить" name="submit">
+                        <input id="name-input" class="form__input form__input_type_item-name" type="text" value="Жак-Ив Кусто" name="name" minlength="2" maxlength="40" required>
+                        <span class="name-input-error form__input-error"></span>
+                        <input id="job-input" class="form__input form__input_type_item-job-name" type="text" value="Исследователь океана" name="job_name" minlength="2" maxlength="200" required>
+                        <span class="job-input-error form__input-error"></span>
+                        <input class="form__submit form__submit_state_enabled" type="submit" value="Сохранить" name="submit">
                     </form>
                     <button type="button" aria-label="Закрыть" class="popup__close-icon"></button>
                 </div>
@@ -90,9 +92,11 @@
                 <div class="popup__container">
                     <form class="form-user-new" name="form-user-new">
                         <h2 class="form-user-new__caption">Новое место</h2>
-                        <input class="form-user-new__input form-user-new__input_type_card-name" type="text" value="" name="name" placeholder="Название">
-                        <input class="form-user-new__input form-user-new__input_type_card-link" type="text" value="" name="job_name" placeholder="Ссылка на картинку">
-                        <input class="form-user-new__card-add-submit" type="submit" value="Сохранить" name="submit">
+                        <input id="card-name-input" class="form__input form-user-new__input_type_card-name" type="text" value="" name="card-name" placeholder="Название" minlength="2" maxlength="40" required>
+                        <span class="card-name-input-error form__input-error"></span>
+                        <input id="card-link-input" class="form__input form-user-new__input_type_card-link" type="url" value="" name="card-link" placeholder="Ссылка на картинку" required>
+                        <span class="card-link-input-error form__input-error"></span>
+                        <input class="form-user-new__card-add-submit form-user-new__card-add-submit_state_disabled" type="submit" value="Сохранить" name="submit" disabled>
                     </form>
                     <button type="button" aria-label="Закрыть" class="popup__card-close-icon"></button>
                 </div>
@@ -121,13 +125,13 @@
         <template id="profile-template">
             <form class="form-user-profile" name="form-user-profile">
                 <h2 class="form__caption">Редактировать профиль</h2>
-                <input class="form__input form__input_type_item-name" type="text" value="Жак-Ив Кусто" name="name">
-                <input class="form__input form__input_type_item-job-name" type="text" value="Исследователь океана" name="job_name">
+                <input class="form__input form__input_type_item-name" type="text" value="Жак-Ив Кусто" name="name" minlength="2" maxlength="40" required>
+                <input class="form__input form__input_type_item-job-name" type="text" value="Исследователь океана" name="job_name" minlength="2" maxlength="200" required>
                 <input class="form__submit" type="submit" value="Сохранить" name="submit">
             </form>
         </template>
         <template id="card-add-template">
-            <form class="form-user-new" name="form-user-new">
+            <form class="form-user-new-template" name="form-user-new">
                 <h2 class="form__caption">Новое место</h2>
                 <input class="form__input form__input_type_item-name" type="text" value="" name="name" placeholder="Название">
                 <input class="form__input form__input_type_item-job-name" type="text" value="" name="job_name" placeholder="Ссылка на картинку">
