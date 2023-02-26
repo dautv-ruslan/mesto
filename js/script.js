@@ -13,7 +13,7 @@ const editButton = document.querySelector('.user__edit-button');
 const likeButton = document.querySelectorAll('.card__heart-icon');
 const cardButton = document.querySelectorAll('.card__button');
 const userAddButton = document.querySelector('.user__add-button');
-const cardAddSubmit = document.querySelector('.form-user-new__card-add-submit');
+const cardAddSubmit = document.querySelector('.form__submit');
 
 const itemName = document.querySelector('.form__input_type_item-name');
 const jobName = document.querySelector('.form__input_type_item-job-name');
@@ -25,8 +25,8 @@ const cardList = document.querySelector('.card__list');
 const userName = document.querySelector('.user__name');
 const userJobName = document.querySelector('.user__job-name');
 
-const cardName = document.querySelector('.form-user-new__input_type_card-name');
-const cardLink = document.querySelector('.form-user-new__input_type_card-link');
+const cardName = document.querySelector('.form__input_type_card-name');
+const cardLink = document.querySelector('.form__input_type_card-link');
 
 /*
 const cardTemplateName = cardAddTemplate.querySelector('.form-user-new__input_type_card-name');
@@ -131,7 +131,7 @@ const isValid = (formElement, inputElement) => {
 }
 
 const checkEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.form__input:not(input[type=submit])'));
+    const inputList = Array.from(formElement.querySelectorAll('.form__input'));
 
     let input_valid = true;
     inputList.forEach((inputElement) => {
@@ -144,7 +144,7 @@ const checkEventListeners = (formElement) => {
 }
 
 const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.form__input:not(input[type=submit])'));
+    const inputList = Array.from(formElement.querySelectorAll('.form__input'));
 
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
