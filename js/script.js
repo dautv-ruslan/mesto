@@ -1,7 +1,7 @@
 /* Используемые ноды */
 
-const form = document.querySelector(".form");
-const formUser = document.querySelector('.form-user-new');
+const form = document.querySelector(".form-user-new");
+const formUser = document.querySelector('.card-add-form');
 
 const fPopup = document.querySelector('.popup');
 const fPopupContainer = document.querySelector('.popup__container');
@@ -13,10 +13,10 @@ const editButton = document.querySelector('.user__edit-button');
 const likeButton = document.querySelectorAll('.card__heart-icon');
 const cardButton = document.querySelectorAll('.card__button');
 const userAddButton = document.querySelector('.user__add-button');
-const cardAddSubmit = document.querySelector('.form__submit');
+const cardAddSubmit = document.querySelector('.popup__submit_type_add');
 
-const itemName = document.querySelector('.form__input_type_item-name');
-const jobName = document.querySelector('.form__input_type_item-job-name');
+const itemName = document.querySelector('.popup__input_type_item-name');
+const jobName = document.querySelector('.popup__input_type_item-job-name');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardAddTemplate = document.querySelector('.card-add-template');
 const imageTemplate = document.querySelector('.image-template');
@@ -25,8 +25,8 @@ const cardList = document.querySelector('.card__list');
 const userName = document.querySelector('.user__name');
 const userJobName = document.querySelector('.user__job-name');
 
-const cardName = document.querySelector('.form__input_type_card-name');
-const cardLink = document.querySelector('.form__input_type_card-link');
+const cardName = document.querySelector('.popup__input_type_card-name');
+const cardLink = document.querySelector('.popup__input_type_card-link');
 
 /*
 const cardTemplateName = cardAddTemplate.querySelector('.form-user-new__input_type_card-name');
@@ -102,16 +102,16 @@ const hideSubmitButton = (submitButton) => {
 const showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
-    inputElement.classList.add('form__input_type_error');
+    inputElement.classList.add('popup__input_type_error');
     errorElement.textContent = errorMessage;
-    errorElement.classList.add('form__input-error_active');
+    errorElement.classList.add('popup__input-error_active');
 }
 
 const hideInputError = (formElement, inputElement) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
-    inputElement.classList.remove('form__input_type_error');
-    errorElement.classList.remove('form__input-error_active');
+    inputElement.classList.remove('popup__input_type_error');
+    errorElement.classList.remove('popup__input-error_active');
     errorElement.textContent = '';
 }
 
@@ -131,7 +131,7 @@ const isValid = (formElement, inputElement) => {
 }
 
 const checkEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+    const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
 
     let input_valid = true;
     inputList.forEach((inputElement) => {
@@ -144,7 +144,7 @@ const checkEventListeners = (formElement) => {
 }
 
 const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+    const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
 
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
@@ -212,7 +212,7 @@ function handleCardAdd(evt) {
     closePopup(cardAddTemplate);
 }
 
-const formInput = form.querySelector('.form__input');
+const formInput = form.querySelector('.popup__input');
 
 /* Привязка слотов и сигналов, подписчиков */
 

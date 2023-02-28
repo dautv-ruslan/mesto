@@ -1,4 +1,4 @@
-.form__caption {
+.popup__caption {
     font-weight: 900;
     color: #000000;
     margin-top: 0;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (min-width: 769px) {
-    .form__caption {
+    .popup__caption {
         font-size: 24px;
         line-height: 29px;
         text-align: left;
@@ -17,7 +17,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .form__caption {
+    .popup__caption {
         font-size: 18px;
         line-height: 22px;
         text-align: center;

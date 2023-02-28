@@ -37,13 +37,13 @@
 @import url(../blocks/popup/__image-hint/popup__image-hint.css);
 @import url(../blocks/popup/__card-close-icon/popup__card-close-icon.css);
 
-@import url(../blocks/form/form.css);
-@import url(../blocks/form/__caption/form__caption.css);
-@import url(../blocks/form/__input/form__input.css);
-@import url(../blocks/form/__input-error/form__input-error.css);
-@import url(../blocks/form/__submit/form__submit.css);
-@import url(../blocks/form/__submit/_state/_disabled/form__submit_state_disabled.css);
-@import url(../blocks/form/__submit/_state/_enabled/form__submit_state_enabled.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__caption/popup__caption.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
+@import url(../blocks/popup/__submit/popup__submit.css);
+@import url(../blocks/popup/__submit/_state/_disabled/popup__submit_state_disabled.css);
+@import url(../blocks/popup/__submit/_state/_enabled/popup__submit_state_enabled.css);
 @import url(../blocks/form-user-new/form-user-new.css);
 @import url(../blocks/form-user-new/__caption/form-user-new__caption.css);
 @import url(../blocks/form-user-new/__input/form-user-new__input.css);
