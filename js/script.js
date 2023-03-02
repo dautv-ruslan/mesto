@@ -1,17 +1,13 @@
 /* Используемые ноды */
 
-const form = document.querySelector(".form-user-new");
-const formUser = document.querySelector('.card-add-form');
+const profileForm = document.forms['form-user-profile'];
+const formUser = document.forms['form-user-new'];
 
-const fPopup = document.querySelector('.popup');
+const profilePopup = document.querySelector('.profile-popup');
 const fPopupContainer = document.querySelector('.popup__container');
-const closeIcon = document.querySelector('.popup__close-icon');
-const overlay = document.querySelectorAll('.popup');
-const imageCloseIcon = document.querySelector('.popup__image-close-icon');
-const cardCloseIcon = document.querySelector('.popup__card-close-icon');
+
+const overlays = document.querySelectorAll('.popup');
 const editButton = document.querySelector('.user__edit-button');
-const likeButton = document.querySelectorAll('.card__heart-icon');
-const cardButton = document.querySelectorAll('.card__button');
 const userAddButton = document.querySelector('.user__add-button');
 const cardAddSubmit = document.querySelector('.popup__submit_type_add');
 
@@ -27,11 +23,6 @@ const userJobName = document.querySelector('.user__job-name');
 
 const cardName = document.querySelector('.popup__input_type_card-name');
 const cardLink = document.querySelector('.popup__input_type_card-link');
-
-/*
-const cardTemplateName = cardAddTemplate.querySelector('.form-user-new__input_type_card-name');
-const cardTemplateLink = cardAddTemplate.querySelector('.form-user-new__input_type_card-link');
-*/
 
 const imageCaption = imageTemplate.querySelector('.popup__image-hint');
 const imageLink = imageTemplate.querySelector('.popup__image');
@@ -50,17 +41,16 @@ function insertCard(name, link) {
 
     cardElement.querySelector('.card__heart-icon').addEventListener('click', handleLikeButton);
 
-    /* Слушатель событий имеет четко определенные параметры в функции, это event, target, loop. Если установить другие параметры, конструкция перестает работать */
     cardElement.querySelector('.card__button').addEventListener('click', function() {
         cardElement.remove();
     });
     
-    /* Слушатель событий имеет четко определенные параметры в функции, это event, target, loop. Если установить другие параметры, конструкция перестает работать */
     cardElementImage.addEventListener('click', function() {
         imageLink.src = link;
         imageLink.setAttribute('alt', name);
         imageCaption.innerText = name;
         openPopup(imageTemplate);
+        document.addEventListener('keydown', closeOnEscapeButtonClick);
     });
 
     return cardElement;
@@ -76,29 +66,18 @@ function closePopup(item) {
 
 /* Обработчики событий */
 
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     
     userName.textContent = itemName.value;
     userJobName.textContent = jobName.value;
 
-    closePopup(fPopup);
+    closePopup(profilePopup);
 }
 
-function handleFormClose(evt) {
-    closePopup(fPopup);
-}
-
-function handleImageClose(evt) {
-    closePopup(imageTemplate);
-}
-
-function handleCardClose(evt) {
-    closePopup(cardAddTemplate);
-}
-
-function handleFormOpen(evt) {
-    openPopup(fPopup);
+function openProfileForm(evt) {
+    openPopup(profilePopup);
+    document.addEventListener('keydown', closeOnEscapeButtonClick);
 
     const userNameContent = userName.textContent;
     const jobNameContent = userJobName.textContent;
@@ -111,62 +90,52 @@ function handleLikeButton(evt, target, loop) {
     evt.target.classList.toggle('card__heart-icon_black');
 }
 
-/*
-function handleDeleteButton(evt) {
-    evt.target.parentNode.remove();
-}
-
-function handleImagePopup(name, link) {
-    imageTemplate.querySelector('.popup__image').src = link;
-    imageTemplate.querySelector('.popup__image-hint').innerText = name;
-
-    openPopup(imageTemplate);
-}
-*/
-
-function handleUserForm(evt) {
-    /*
-    const cardTemplateElement = cardAddTemplate.querySelector('.form-user-new').cloneNode(true);
-    fPopupContainer.append(cardTemplateElement);
-    document.querySelector('.form__submit').addEventListener('click', handleCardAdd);
-    */
-    cardName.value = '';
-    cardLink.value = '';
+function openCardForm(evt) {
     openPopup(cardAddTemplate);
+    document.addEventListener('keydown', closeOnEscapeButtonClick);
 }
 
 function handleCardAdd(evt) {
     evt.preventDefault();
 
+    const submitButtonElement = formUser.querySelector('input[type="submit"]');
+
     const cardItem = insertCard(cardName.value, cardLink.value);
 
     cardList.insertBefore(cardItem, cardList.firstChild);
+
+    evt.target.reset();
+
+    hideSubmitButton(submitButtonElement, 'popup__submit_state_enabled');
+    
     closePopup(cardAddTemplate);
 }
 
-const formInput = form.querySelector('.popup__input');
+function closeOnEscapeButtonClick(evt) {
+    if (evt.code == 'Escape') {
+        const openedPopup = document.querySelector('.popup_state-opened');
+        closePopup(openedPopup);
+        document.removeEventListener('keydown', closeOnEscapeButtonClick);
+    }
+}
+
+const formInput = profileForm.querySelector('.popup__input');
 
 /* Привязка слотов и сигналов, подписчиков */
 
-form.addEventListener('submit', handleFormSubmit);
-setEventListeners(form);
-setEventListeners(formUser);
-closeIcon.addEventListener('click', handleFormClose);
-imageCloseIcon.addEventListener('click', handleImageClose);
-cardCloseIcon.addEventListener('click', handleCardClose);
-editButton.addEventListener('click', handleFormOpen);
-userAddButton.addEventListener('click', handleUserForm);
-cardAddSubmit.addEventListener('click', handleCardAdd);
-
-/*
-likeButton.forEach(function(item) {
-    item.addEventListener('click', handleLikeButton);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
+enableValidation({
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__submit",
+    inactiveButtonClass: "popup__submit_state_disabled",
+    activeButtonClass: "popup__submit_state_enabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__input-error_active"
 });
-
-cardButton.forEach(function(item) {
-    item.addEventListener('click', handleDeleteButton);
-});
-*/
+editButton.addEventListener('click', openProfileForm);
+userAddButton.addEventListener('click', openCardForm);
+formUser.addEventListener('submit', handleCardAdd);
 
 /* Инициализация карточек */
 
@@ -176,20 +145,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         cardList.append(cardItem);
     });
-    overlay.forEach(function(item) {
-        item.addEventListener('click', function(evt) {
-            if (evt.target == fPopup) {
-                closePopup(fPopup)
+    overlays.forEach(function(item) {
+        item.addEventListener('mousedown', function(evt) {
+            if (evt.target.classList.contains('popup_state-opened')) {
+                closePopup(item);
             }
-            if (evt.target == cardAddTemplate) {
-                closePopup(cardAddTemplate);
+            if (evt.target.classList.contains('popup__close-icon')) {
+                closePopup(item);
             }
         })
     });
-    document.addEventListener('keydown', function(evt) {
-        if (evt.code == 'Escape') {
-            closePopup(fPopup);
-            closePopup(cardAddTemplate);
-        }
-    });
+    document.addEventListener('keydown', closeOnEscapeButtonClick);
 })
