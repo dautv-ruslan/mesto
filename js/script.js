@@ -1,7 +1,7 @@
 /* Используемые ноды */
 
 const profileForm = document.forms['form-user-profile'];
-const formUser = document.forms['form-user-new'];
+const cardForm = document.forms['form-user-new'];
 
 const profilePopup = document.querySelector('.profile-popup');
 const fPopupContainer = document.querySelector('.popup__container');
@@ -50,7 +50,6 @@ function insertCard(name, link) {
         imageLink.setAttribute('alt', name);
         imageCaption.innerText = name;
         openPopup(imageTemplate);
-        document.addEventListener('keydown', closeOnEscapeButtonClick);
     });
 
     return cardElement;
@@ -58,10 +57,12 @@ function insertCard(name, link) {
 
 function openPopup(item) {
     item.classList.add('popup_state-opened');
+    document.addEventListener('keydown', closeOnEscapeButtonClick);
 }
 
 function closePopup(item) {
     item.classList.remove('popup_state-opened');
+    document.removeEventListener('keydown', closeOnEscapeButtonClick);
 }
 
 /* Обработчики событий */
@@ -77,7 +78,6 @@ function handleProfileFormSubmit(evt) {
 
 function openProfileForm(evt) {
     openPopup(profilePopup);
-    document.addEventListener('keydown', closeOnEscapeButtonClick);
 
     const userNameContent = userName.textContent;
     const jobNameContent = userJobName.textContent;
@@ -92,13 +92,12 @@ function handleLikeButton(evt, target, loop) {
 
 function openCardForm(evt) {
     openPopup(cardAddTemplate);
-    document.addEventListener('keydown', closeOnEscapeButtonClick);
 }
 
 function handleCardAdd(evt) {
     evt.preventDefault();
 
-    const submitButtonElement = formUser.querySelector('input[type="submit"]');
+    const submitButtonElement = cardForm.querySelector('input[type="submit"]');
 
     const cardItem = insertCard(cardName.value, cardLink.value);
 
@@ -115,7 +114,6 @@ function closeOnEscapeButtonClick(evt) {
     if (evt.code == 'Escape') {
         const openedPopup = document.querySelector('.popup_state-opened');
         closePopup(openedPopup);
-        document.removeEventListener('keydown', closeOnEscapeButtonClick);
     }
 }
 
@@ -130,12 +128,13 @@ enableValidation({
     submitButtonSelector: ".popup__submit",
     inactiveButtonClass: "popup__submit_state_disabled",
     activeButtonClass: "popup__submit_state_enabled",
+    inputTypeInvalidClass: "popup__input_type_invalid",
     inputErrorClass: "popup__input_type_error",
     errorClass: "popup__input-error_active"
 });
 editButton.addEventListener('click', openProfileForm);
 userAddButton.addEventListener('click', openCardForm);
-formUser.addEventListener('submit', handleCardAdd);
+cardForm.addEventListener('submit', handleCardAdd);
 
 /* Инициализация карточек */
 
@@ -155,5 +154,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
     });
-    document.addEventListener('keydown', closeOnEscapeButtonClick);
 })
