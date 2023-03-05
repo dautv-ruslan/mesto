@@ -97,7 +97,7 @@ function openCardForm(evt) {
 function handleCardAdd(evt) {
     evt.preventDefault();
 
-    const submitButtonElement = cardForm.querySelector('input[type="submit"]');
+    const submitButtonElement = evt.submitter;
 
     const cardItem = insertCard(cardName.value, cardLink.value);
 

@@ -4,11 +4,7 @@ const showSubmitButton = (submitButton, buttonClass) => {
 }
 
 const hideSubmitButton = (submitButton, buttonClass) => {
-    submitButton.classList.forEach((item) => {
-        if (item == buttonClass) {
-            submitButton.classList.remove(item);
-        }
-    })
+    submitButton.classList.remove(buttonClass);
     submitButton.disabled = true;
 }
 
@@ -31,7 +27,7 @@ const hideInputError = (formElement, inputElement, settings) => {
 }
 
 const isValid = (formElement, inputElement, settings) => {
-    let submitButtonElement = formElement.querySelector(settings.submitButtonSelector);
+    const submitButtonElement = formElement.querySelector(settings.submitButtonSelector);
 
     if (!inputElement.validity.valid) {
         showInputError(formElement, inputElement, inputElement.validationMessage, settings);
@@ -48,14 +44,14 @@ const isValid = (formElement, inputElement, settings) => {
 const checkEventListeners = (formElement, settings) => {
     const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
 
-    let input_valid = true;
+    let inputValid = true;
     inputList.forEach((inputElement) => {
         if (!inputElement.validity.valid) {
-            input_valid = false;
+            inputValid = false;
         }
     });
 
-    return input_valid;
+    return inputValid;
 }
 
 const setEventListeners = (formElement, settings) => {
