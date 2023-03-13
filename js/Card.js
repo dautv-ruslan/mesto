@@ -1,47 +1,47 @@
-import closeOnEscapeButtonClick from './functions.js';
-
 export class Card {
-    constructor(name, link, template) {
-        this.name = name;
-        this.link = link;
+    constructor(data, template, handleOpenPopup) {
+        this.name = data.name;
+        this.link = data.link;
         this._template = template;
+        this._handleOpenPopup = handleOpenPopup;
 
         this.imageTemplate = document.querySelector('.image-template');
+        this.imageCaption = this.imageTemplate.querySelector('.popup__image-hint');
+        this.imageLink = this.imageTemplate.querySelector('.popup__image');
 
         this.templateElement = document.querySelector(this._template).content;
         this.cardElement = this.templateElement.querySelector('.card__item').cloneNode(true);
 
         this.cardElementCaption = this.cardElement.querySelector('.card__caption');
         this.cardElementImage = this.cardElement.querySelector('.card__image');
+
+        this.heartButton = this.cardElement.querySelector('.card__heart-icon');
     }
 
-    _setCardTemplate() {
+    _switch = (evt, target, loop) => {
+        this.heartButton.classList.toggle('card__heart-icon_black');
+    }
+
+    _deleteCard = () => {
+        this.cardElement.remove();
+        this.cardElement = null;
+    }
+
+    _setCardTemplate = () => {
         this.cardElementCaption.textContent = this.name;
         this.cardElementImage.src = this.link;
         this.cardElementImage.setAttribute('alt', this.name);
     }
-    _setEventListeners() {
-        this.cardElement.querySelector('.card__heart-icon').addEventListener('click', function(evt, target, loop) {
-            evt.target.classList.toggle('card__heart-icon_black');
-        });
+    _setEventListeners = () => {
+        this.heartButton.addEventListener('click', this._switch);
 
-        this.cardElement.querySelector('.card__button').addEventListener('click', function(evt, target, loop) {
-            evt.target.parentNode.remove();
-        });
-        this.cardElementImage.addEventListener('click', function(evt, target, loop) {
-            const imageTemplate = document.querySelector('.image-template');
-            const imageCaption = imageTemplate.querySelector('.popup__image-hint');
-            const imageLink = imageTemplate.querySelector('.popup__image');
-            const imageAltName = evt.target.getAttribute('alt')
-            imageLink.src = evt.target.src;
-            imageLink.setAttribute('alt', imageAltName);
-            imageCaption.innerText = imageAltName;
-            imageTemplate.classList.add('popup_state-opened');
-            document.addEventListener('keydown', closeOnEscapeButtonClick);
+        this.cardElement.querySelector('.card__button').addEventListener('click', this._deleteCard);
+        this.cardElementImage.addEventListener('click', () => {
+            this._handleOpenPopup(this.name, this.link)
         });
     }
 
-    addCard() {
+    addCard = () => {
         this._setCardTemplate();
         this._setEventListeners();
         return this.cardElement;

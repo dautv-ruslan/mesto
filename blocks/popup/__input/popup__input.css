@@ -19,15 +19,15 @@
         margin: 54px 36px 0;
     }
     .popup__input:nth-of-type(2) {
-        margin: 30px 36px 0;
+        margin: 0 36px 0;
     }
 }
 
 @media screen and (max-width: 768px) {
     .popup__input:first-of-type {
-        margin: 75px 22px 30px;
+        margin: 75px 22px 0;
     }
     .popup__input:nth-of-type(2) {
-        margin: 0 22px 45px;
+        margin: 0 22px 0;
     }
 }
