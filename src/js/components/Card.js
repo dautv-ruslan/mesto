@@ -1,13 +1,11 @@
+import { imageTemplate, imageCaption, imageLink } from "../cards.js";
+
 export class Card {
-    constructor(data, template, handleOpenPopup) {
+    constructor(data, template, handleCardClick) {
         this.name = data.name;
         this.link = data.link;
         this._template = template;
-        this._handleOpenPopup = handleOpenPopup;
-
-        this.imageTemplate = document.querySelector('.image-template');
-        this.imageCaption = this.imageTemplate.querySelector('.popup__image-hint');
-        this.imageLink = this.imageTemplate.querySelector('.popup__image');
+        this._handleCardClick = handleCardClick;
 
         this.templateElement = document.querySelector(this._template).content;
         this.cardElement = this.templateElement.querySelector('.card__item').cloneNode(true);
@@ -37,7 +35,7 @@ export class Card {
 
         this.cardElement.querySelector('.card__button').addEventListener('click', this._deleteCard);
         this.cardElementImage.addEventListener('click', () => {
-            this._handleOpenPopup(this.name, this.link)
+            this._handleCardClick(this.name, this.link)
         });
     }
 

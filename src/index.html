@@ -4,15 +4,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <title>Проект: Место</title>
-        <link href="pages/index.css" rel="stylesheet">
     </head>
     <body class="page">
         <header class="header">
-            <img class="header__logo" src="images/logo.svg" alt="Место в России">
+            <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Место в России">
         </header>
         <main class="content">
             <section class="user">
-                <img class="user__image" src="images/image_3.png" alt="Аватар">
+                <img class="user__image" src="<%=require('./images/image_3.png')%>" alt="Аватар">
                 <div class="user__row-spacing-left">
                     <div class="user__name-container">
                         <h1 class="user__name">Жак-Ив Кусто</h1><button type="button" aria-label="Редактировать" class="user__edit-button"></button>
@@ -64,7 +63,7 @@
         </footer>
         <template id="card-template">
             <li class="card__item">
-                <img class="card__button" src="images/Delete.svg" alt="удалить" title="удалить">
+                <img class="card__button" src="<%=require('./images/Delete.svg')%>" alt="удалить" title="удалить">
                 <img class="card__image" alt="Картинка">
                 <div class="card__container">
                     <h2 class="card__caption"></h2>
@@ -72,7 +71,5 @@
                 </div>
             </li>
         </template>
-        <script src="js/cards.js"></script>
-        <script type="module" src="js/index.js"></script>
     </body>
 </html>

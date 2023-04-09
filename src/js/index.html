@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Проект: Место</title>
+        <link href="pages/index.css" rel="stylesheet">
+    </head>
+    <body class="page">
+        <header class="header">
+            <img class="header__logo" src="images/logo.svg" alt="Место в России">
+        </header>
+        <main class="content">
+            <section class="user">
+                <img class="user__image" src="images/image_3.png" alt="Аватар">
+                <div class="user__row-spacing-left">
+                    <div class="user__name-container">
+                        <h1 class="user__name">Жак-Ив Кусто</h1><button type="button" aria-label="Редактировать" class="user__edit-button"></button>
+                    </div>
+                    <p class="user__job-name">Исследователь океана</p>
+                </div>
+                <button type="button" aria-label="Добавить пользователя" class="user__add-button"></button>
+            </section>
+            <section class="card">
+                <ul class="card__list">
+                </ul>
+            </section>
+            <div class="popup profile-popup">
+                <div class="popup__container">
+                    <form class="popup__form form-user-new" name="form-user-profile">
+                        <h2 class="popup__caption">Редактировать профиль</h2>
+                        <input id="name-input" class="popup__input popup__input_type_item-name" type="text" value="Жак-Ив Кусто" name="name" minlength="2" maxlength="40" required>
+                        <span class="name-input-error popup__input-error"></span>
+                        <input id="job-input" class="popup__input popup__input_type_item-job-name" type="text" value="Исследователь океана" name="job_name" minlength="2" maxlength="200" required>
+                        <span class="job-input-error popup__input-error"></span>
+                        <input class="popup__submit popup__submit_state_enabled" type="submit" value="Сохранить" name="submit">
+                    </form>
+                    <button type="button" aria-label="Закрыть" class="popup__close-icon"></button>
+                </div>
+            </div>
+            <div class="popup card-add-template">
+                <div class="popup__container">
+                    <form class="popup__form card-add-form" name="form-user-new">
+                        <h2 class="popup__caption">Новое место</h2>
+                        <input id="card-name-input" class="popup__input popup__input_type_card-name" type="text" value="" name="card-name" placeholder="Название" minlength="2" maxlength="40" required>
+                        <span class="card-name-input-error popup__input-error"></span>
+                        <input id="card-link-input" class="popup__input popup__input_type_card-link" type="url" value="" name="card-link" placeholder="Ссылка на картинку" required>
+                        <span class="card-link-input-error popup__input-error"></span>
+                        <input class="popup__submit popup__submit_type_add" type="submit" value="Сохранить" name="submit" disabled>
+                    </form>
+                    <button type="button" aria-label="Закрыть" class="popup__close-icon"></button>
+                </div>
+            </div>
+            <div class="popup image-template">
+                <div class="popup__image-container">
+                    <img class="popup__image">
+                    <p class="popup__image-hint"></p>
+                    <button type="button" aria-label="Закрыть" class="popup__close-icon"></button>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <p class="footer__copy">&copy; 2020 Mesto Russia</p>
+        </footer>
+        <template id="card-template">
+            <li class="card__item">
+                <img class="card__button" src="images/Delete.svg" alt="удалить" title="удалить">
+                <img class="card__image" alt="Картинка">
+                <div class="card__container">
+                    <h2 class="card__caption"></h2>
+                    <button type="button" aria-label="Нравится" class="card__heart-icon"></button>
+                </div>
+            </li>
+        </template>
+        <script type="module" src="js/index.js"></script>
+    </body>
+</html>
