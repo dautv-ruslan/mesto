@@ -1,21 +1,18 @@
-import {Card} from './Card.js';
-import { imageTemplate, imageCaption, imageLink } from '../cards.js';
-
 export class Section {
-    constructor({items, renderer}, element) {
-        this.items = items;
-        this.renderer = renderer;
-        this.element = element;
+    constructor({items, renderer}, selector) {
+        this._items = items;
+        this._renderer = renderer;
+        this._element = document.querySelector(selector);
     }
 
     renderElements() {
-        this.items.forEach((item) => {
-            const card = this.renderer(item);
+        this._items.forEach((item) => {
+            const card = this._renderer(item);
             this.addItem(card);
         });
     }
 
     addItem = (item) => {
-        this.element.append(item);
+        this._element.append(item);
     }
 }

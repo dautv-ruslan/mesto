@@ -41,9 +41,9 @@
                 <div class="popup__container">
                     <form class="popup__form card-add-form" name="form-user-new">
                         <h2 class="popup__caption">Новое место</h2>
-                        <input id="card-name-input" class="popup__input popup__input_type_card-name" type="text" value="" name="card-name" placeholder="Название" minlength="2" maxlength="40" required>
+                        <input id="card-name-input" class="popup__input popup__input_type_card-name" type="text" name="card-name" placeholder="Название" minlength="2" maxlength="40" required>
                         <span class="card-name-input-error popup__input-error"></span>
-                        <input id="card-link-input" class="popup__input popup__input_type_card-link" type="url" value="" name="card-link" placeholder="Ссылка на картинку" required>
+                        <input id="card-link-input" class="popup__input popup__input_type_card-link" type="url" name="card-link" placeholder="Ссылка на картинку" required>
                         <span class="card-link-input-error popup__input-error"></span>
                         <input class="popup__submit popup__submit_type_add" type="submit" value="Сохранить" name="submit" disabled>
                     </form>
@@ -64,7 +64,7 @@
         <template id="card-template">
             <li class="card__item">
                 <img class="card__button" src="<%=require('./images/Delete.svg')%>" alt="удалить" title="удалить">
-                <img class="card__image" alt="Картинка">
+                <img class="card__image" src="" alt="Картинка">
                 <div class="card__container">
                     <h2 class="card__caption"></h2>
                     <button type="button" aria-label="Нравится" class="card__heart-icon"></button>

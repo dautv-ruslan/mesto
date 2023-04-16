@@ -1,47 +1,48 @@
-import { imageTemplate, imageCaption, imageLink } from "../cards.js";
-
 export class Card {
     constructor(data, template, handleCardClick) {
-        this.name = data.name;
-        this.link = data.link;
+        this._name = data.name;
+        this._link = data.link;
         this._template = template;
         this._handleCardClick = handleCardClick;
 
-        this.templateElement = document.querySelector(this._template).content;
-        this.cardElement = this.templateElement.querySelector('.card__item').cloneNode(true);
+        this._templateElement = document.querySelector(this._template).content;
+        this._cardElement = this._templateElement.querySelector('.card__item').cloneNode(true);
 
-        this.cardElementCaption = this.cardElement.querySelector('.card__caption');
-        this.cardElementImage = this.cardElement.querySelector('.card__image');
+        this._cardElementCaption = this._cardElement.querySelector('.card__caption');
+        this._cardElementImage = this._cardElement.querySelector('.card__image');
 
-        this.heartButton = this.cardElement.querySelector('.card__heart-icon');
+        this._heartButton = this._cardElement.querySelector('.card__heart-icon');
     }
 
     _switch = (evt, target, loop) => {
-        this.heartButton.classList.toggle('card__heart-icon_black');
+        this._heartButton.classList.toggle('card__heart-icon_black');
     }
 
     _deleteCard = () => {
-        this.cardElement.remove();
-        this.cardElement = null;
+        this._cardElement.remove();
+        this._cardElementCaption = null;
+        this._cardElementImage = null;
+        this._heartButton = null;
+        this._cardElement = null;
     }
 
     _setCardTemplate = () => {
-        this.cardElementCaption.textContent = this.name;
-        this.cardElementImage.src = this.link;
-        this.cardElementImage.setAttribute('alt', this.name);
+        this._cardElementCaption.textContent = this._name;
+        this._cardElementImage.src = this._link;
+        this._cardElementImage.setAttribute('alt', this._name);
     }
-    _setEventListeners = () => {
-        this.heartButton.addEventListener('click', this._switch);
+    _setEventListeners = (name, link, handleCardClick) => {
+        this._heartButton.addEventListener('click', this._switch);
 
-        this.cardElement.querySelector('.card__button').addEventListener('click', this._deleteCard);
-        this.cardElementImage.addEventListener('click', () => {
-            this._handleCardClick(this.name, this.link)
-        });
+        this._cardElement.querySelector('.card__button').addEventListener('click', this._deleteCard);
+        this._cardElementImage.addEventListener('click', () => {
+            handleCardClick(name, link);
+        })
     }
 
-    addCard = () => {
+    generateCard = () => {
         this._setCardTemplate();
-        this._setEventListeners();
-        return this.cardElement;
+        this._setEventListeners(this._name, this._link, this._handleCardClick);
+        return this._cardElement;
     }
 }

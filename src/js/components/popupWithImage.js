@@ -1,19 +1,19 @@
 import {Popup} from './Popup.js';
-import { imageTemplate, imageCaption, imageLink } from "../cards.js";
 import { closeOnEscapeButtonClick } from '../functions.js';
+import { imageTemplate, imageLink, imageCaption } from '../cards.js';
 
 export class PopupWithImage extends Popup {
-    constructor(selector, name, link) {
+    constructor(selector) {
         super(selector);
-        this._name = name;
-        this._link = link;
+        this._link = this._popupElement.querySelector('.popup__image-hint');
+        this._name = this._popupElement.querySelector('.popup__image');
     }
 
     open = (name, link) => {
-        this._element.classList.add('popup_state-opened');
-        imageLink.src = this._link;
-        imageLink.setAttribute('alt', this._name);
-        imageCaption.innerText = this._name;
+        super.open();
+        this._link.src = link;
+        this._link.setAttribute('alt', name);
+        this._name.innerText = name;
         document.addEventListener('keydown', closeOnEscapeButtonClick);
     }
 }
